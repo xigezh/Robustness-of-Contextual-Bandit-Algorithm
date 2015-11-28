@@ -13,25 +13,18 @@ n =10000;
 %n = 100;
 
 %%%%%%%%%%%%%%%
-n_simu=100;
+n_simu=100
 %n_simu=10;
-tau_mat=[0.2,0.4,0.6];
+tau=0;
 
-tau_length = length(tau_mat);
-
-
+mu_star=[10 -1 0 0 -0.25 -0.25 -0.4 0];
 
 
 %[ theta_star, value_star, lambda_star, f_star ] = policy_population_lambda20150729( mu_star,tau, p_explore,p_s, param_fmin, n_ms, n, seed)
 
-for i = 1:tau_length
-    
-    tau = tau_mat(i);
-    mu_star=[10 -1 0 tau -0.25 -0.25 -0.4 0];
 
-online_exp_burden20151009(p_explore, p_s, max_time, tau, spec, param_gs, param_fmin, n_simu, n_ms, optim_gap);
+online_exp_burden20151009(p_explore, p_s, max_time, tau, spec, param_gs, param_fmin, n_simu, n_ms, optim_gap)
 
-end
 % tau = 0, 0.2, 0.4, 0.6
 % then change max_time = 500, tau = 0, 0.2, 0.4, 0.6
 

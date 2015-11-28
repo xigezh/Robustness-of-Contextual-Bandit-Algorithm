@@ -6,7 +6,7 @@
 #PBS -M xigezh@umich.edu
 #PBS -m abe
 
-#PBS -l procs=20,gres=matlab:1%matlab_distrib_comp_engine:20,walltime=5:00:00:00,pmem=1000mb
+#PBS -l procs=20,gres=matlab:1%matlab_distrib_comp_engine:20,walltime=24:00:00,pmem=1000mb
 #PBS -j oe
 #PBS -V
 
@@ -29,4 +29,4 @@ echo "I ran on:"
 cat $PBS_NODEFILE
 module unload matlab
 module load matlab/2015a
-matlab -nodisplay -r "experiment_1122"
+matlab -nodisplay -r "exp20151025"

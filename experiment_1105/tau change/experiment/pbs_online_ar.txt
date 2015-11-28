@@ -1,0 +1,32 @@
+
+
+####  PBS preamble
+
+#PBS -N online_ar_500_08
+#PBS -M xigezh@umich.edu
+#PBS -m abe
+
+#PBS -l procs=1,gres=matlab:1%matlab_distrib_comp_engine:1,walltime=24:00:00,pmem=1000mb
+#PBS -j oe
+#PBS -V
+
+#PBS -A lsa_flux
+#PBS -q flux
+#PBS -l qos=flux
+
+####  End PBS preamble
+
+#  Show list of CPUs you ran on, if you're running under PBS
+##  if [ -n "$PBS_NODEFILE" ]; then cat $PBS_NODEFILE; fi
+
+#  Change to the directory you submitted from
+##  if [ -n "$PBS_O_WORKDIR" ]; then cd $PBS_O_WORKDIR; fi
+
+####  Put your job commands here:
+
+cd $PBS_O_WORKDIR
+echo "I ran on:"
+cat $PBS_NODEFILE
+module unload matlab
+module load matlab/2015a
+matlab -nodisplay -r "exp20151105"
